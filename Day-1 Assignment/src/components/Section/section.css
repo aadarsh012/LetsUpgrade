@@ -1,0 +1,16 @@
+.Section {
+  display: flex;
+  position: relative;
+  width: 50%;
+  height: 10rem;
+  background-color: #fff;
+  box-shadow: 0 0 2px 5px #eee;
+  border-radius: 5px;
+  top: 5rem;
+  left: 22rem;
+  justify-content: center;
+  align-items: center;
+}
+.Section h3 {
+  margin: 0;
+}
