@@ -1,0 +1,14 @@
+.Card {
+  text-align: center;
+  margin: auto;
+  width: 50%;
+  height: 30em;
+  background-color: beige;
+  border-radius: 5px;
+  box-shadow: 0 0 10px 5px rgb(59, 59, 59);
+}
+
+.Card img {
+  width: 15em;
+  height: 15em;
+}
