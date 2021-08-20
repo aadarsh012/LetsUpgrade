@@ -1,4 +1,5 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
+import LoadingBar from "react-top-loading-bar";
 // https://omdbapi.com/?t=the avengers&apikey=4e18d181
 
 import "./App.css";
@@ -12,13 +13,18 @@ function App() {
   useEffect(() => {
     movieData();
   }, []);
-
+  const ref = useRef(null);
   const movieData = () => {
+    ref.current.continuousStart();
     fetch(`https://omdbapi.com/?t=${title}&apikey=4e18d181`)
-      .then((res) => res.json())
+      .then((res) => {
+        return res.json();
+      })
       .then((movie) => {
         console.log(movie);
         setMovieInfo(movie);
+
+        ref.current.complete();
       })
       .catch((err) => console.log(err));
   };
@@ -51,12 +57,13 @@ function App() {
 
   return (
     <div className="App">
+      <LoadingBar color="#f11946" ref={ref} />
       <div className="Header">
         <p>
           <strong>React Movies</strong>
         </p>
         <div className="Search">
-          <input type="search" placeholder="Enter Movie Name" onChange={(event) => onSearch(event.target.value)} onPointerEnter={movieData} />
+          <input type="search" placeholder="Enter Movie Name" onChange={(event) => onSearch(event.target.value)} />
         </div>
         <button onClick={movieData}>
           <img alt="search-icon" src="https://img.icons8.com/ios-glyphs/30/000000/search--v1.png" />
