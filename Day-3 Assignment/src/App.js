@@ -59,7 +59,7 @@ function App() {
           <input type="search" placeholder="Enter Movie Name" onChange={(event) => onSearch(event.target.value)} onPointerEnter={movieData} />
         </div>
         <button onClick={movieData}>
-          <img alt="search-icon" src="https://img.icons8.com/ios-glyphs/30/000000/search--v1.png" />{" "}
+          <img alt="search-icon" src="https://img.icons8.com/ios-glyphs/30/000000/search--v1.png" />
         </button>
       </div>
       {movie}
