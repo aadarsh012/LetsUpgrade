@@ -43,7 +43,7 @@ function App() {
           plot={movieInfo?.Plot}
           year={movieInfo?.Year}
           production={movieInfo?.Production}
-          ratings={movieInfo?.Ratings}
+          ratings={movieInfo.Ratings}
         />
       </div>
     );
