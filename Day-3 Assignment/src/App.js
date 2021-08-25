@@ -9,11 +9,12 @@ import Description from "./Components/Description/Description";
 function App() {
   const [movieInfo, setMovieInfo] = useState("");
   const [title, setTitle] = useState("");
+  const ref = useRef(null);
 
   useEffect(() => {
     movieData();
   }, []);
-  const ref = useRef(null);
+
   const movieData = () => {
     ref.current.continuousStart();
     fetch(`https://omdbapi.com/?t=${title}&apikey=4e18d181`)
@@ -57,7 +58,7 @@ function App() {
 
   return (
     <div className="App">
-      <LoadingBar color="#f11946" ref={ref} />
+      <LoadingBar color="#ff8800" ref={ref} />
       <div className="Header">
         <p>
           <strong>React Movies</strong>
